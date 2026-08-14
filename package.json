@@ -1,0 +1,17 @@
+{
+  "name": "ghost-threat-intel-agent",
+  "version": "1.0.0",
+  "description": "Autonomous AI Agent that pays bounties in USDC via Circle for verified threat intel.",
+  "main": "agent.js",
+  "type": "module",
+  "scripts": {
+    "start": "node agent.js"
+  },
+  "dependencies": {
+    "@circle-fin/developer-controlled-wallets": "^10.8.0",
+    "@google/genai": "^2.16.0",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.2",
+    "uuid": "^9.0.1"
+  }
+}
