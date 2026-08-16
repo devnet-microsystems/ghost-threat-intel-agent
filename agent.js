@@ -3,6 +3,7 @@ import { GoogleGenAI } from '@google/genai';
 import { initiateDeveloperControlledWalletsClient } from '@circle-fin/developer-controlled-wallets';
 import { v4 as uuidv4 } from 'uuid';
 import dotenv from 'dotenv';
+import crypto from 'crypto';
 
 dotenv.config();
 
