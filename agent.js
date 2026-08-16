@@ -3,7 +3,6 @@ import { GoogleGenAI } from '@google/genai';
 import { initiateDeveloperControlledWalletsClient } from '@circle-fin/developer-controlled-wallets';
 import { v4 as uuidv4 } from 'uuid';
 import dotenv from 'dotenv';
-import crypto from 'crypto';
 
 dotenv.config();
 
@@ -82,7 +81,7 @@ app.post('/api/analyze-threat', async (req, res) => {
 
     // --- STEP 2: AUTONOMOUS USDC PAYMENT (Circle SDK) ---
     if (aiAnalysis.is_botnet && aiAnalysis.confidence > 80) {
-      console.log(`[AGENT] Threat verified. Initiating autonomous 0.005 USDC bounty payment to detection node...`);
+      console.log(`[AGENT] Threat verified. Initiating autonomous 0.10 USDC bounty payment to detection node...`);
       
       const idempotencyKey = uuidv4();
       

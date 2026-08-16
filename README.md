@@ -5,7 +5,7 @@ This repository contains the standalone, autonomous Agent built for the **Build 
 ## What is this?
 This is a Node.js microservice that acts as an autonomous threat intelligence syndicate. It is designed to be pinged by our primary, closed-source WordPress SaaS plugin (*Sovereign AI Overseer*). We built this standalone microservice specifically to demonstrate our agentic economy integration for the **Build with Gemini XPRIZE** without exposing the proprietary PHP core of our flagship product.
 
-When a brute-force attack is detected by the WordPress plugin, the IP telemetry is sent here via a webhook. **Google Gemini 3.5 Flash** analyzes the payload. If the AI determines the threat is a "High-Level Botnet", the Agent **autonomously pays a bounty of 0.005 USDC** (a true nanopayment) to the detecting node using the **Circle Developer-Controlled Wallets SDK**.
+When a brute-force attack is detected by the WordPress plugin, the IP telemetry is sent here via a webhook. **Google Gemini 3.7 Flash** analyzes the payload. If the AI determines the threat is a "High-Level Botnet", the Agent **autonomously pays a bounty of 0.005 USDC** (a true nanopayment) to the detecting node using the **Circle Developer-Controlled Wallets SDK**.
 
 This proves true agentic economic activity: The AI holds its own wallet, makes an executive decision based on real-time data, and settles funds in USDC without human intervention.
 
@@ -47,6 +47,7 @@ Send a POST request to `/api/analyze-threat` with the following JSON payload:
 ```
 
 ## Proof of Execution
-- **Agent Wallet Address:** `[INSERT_YOUR_AGENT_WALLET_ADDRESS_HERE]`
+- **Agent Wallet Address:** `0x166f7f48331e30fabe1649ee8edb68f2afcdf2f1` (Arbitrum Sepolia Testnet)
+- **Bounty Receiver Wallet:** `0x2b5c290e8c6f06ef5cbc53358637b6123f1f8421`
 - **Block Explorer URL:** `[INSERT_YOUR_TRANSACTION_URL_HERE]`
 - **Demo Video:** `[INSERT_YOUTUBE_OR_LOOM_LINK_HERE]`
