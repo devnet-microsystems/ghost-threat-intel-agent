@@ -42,8 +42,8 @@ const circle = initiateDeveloperControlledWalletsClient({
 const THREAT_INTEL_AGENT_WALLET = process.env.AGENT_WALLET_ID;
 const BOUNTY_RECEIVER_WALLET = process.env.BOUNTY_WALLET_ID;
 
-// Token ID for USDC on Arb Sepolia (Circle Testnet)
-const USDC_TOKEN_ID = "4b8daacc-5f47-5909-a3ba-30d171ebad98";
+// Token ID for USDC on Polygon Amoy (Circle Testnet)
+const USDC_TOKEN_ID = "7d9b2759-6464-535f-8048-7158a44a6bf7";
 
 app.post('/api/analyze-threat', async (req, res) => {
   const { ip_address, headers, failed_attempts } = req.body;
