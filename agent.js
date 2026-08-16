@@ -14,7 +14,7 @@ app.use(express.json());
 app.use('/api/analyze-threat', (req, res, next) => {
   const signature = req.headers['x-signature'];
   const secret = process.env.AGENT_SECRET;
-  
+
   if (!signature || !secret) {
     return res.status(401).json({ error: "Unauthorized. Missing signature or secret." });
   }
@@ -39,11 +39,11 @@ const circle = initiateDeveloperControlledWalletsClient({
 });
 
 // Wallet IDs (from Circle Console)
-const THREAT_INTEL_AGENT_WALLET = process.env.AGENT_WALLET_ID; 
-const BOUNTY_RECEIVER_WALLET = process.env.BOUNTY_WALLET_ID; 
+const THREAT_INTEL_AGENT_WALLET = process.env.AGENT_WALLET_ID;
+const BOUNTY_RECEIVER_WALLET = process.env.BOUNTY_WALLET_ID;
 
 // Token ID for USDC on Arb Sepolia (Circle Testnet)
-const USDC_TOKEN_ID = "4b8daacc-5f47-5909-a3ba-30d171ebad98"; 
+const USDC_TOKEN_ID = "4b8daacc-5f47-5909-a3ba-30d171ebad98";
 
 app.post('/api/analyze-threat', async (req, res) => {
   const { ip_address, headers, failed_attempts } = req.body;
@@ -57,7 +57,7 @@ app.post('/api/analyze-threat', async (req, res) => {
   try {
     // --- STEP 1: AI THREAT ANALYSIS (Gemini 3.7 Flash) ---
     console.log(`[AGENT] Consulting Gemini 3.7 Flash for threat intelligence...`);
-    
+
     const prompt = `You are a cybersecurity AI. Analyze this threat data from a WordPress WebAuthn plugin.
     IP: ${ip_address}
     Failed Attempts: ${failed_attempts}
@@ -74,7 +74,7 @@ app.post('/api/analyze-threat', async (req, res) => {
     // Clean up response if it contains markdown formatting
     let aiOutput = response.text;
     if (aiOutput.includes('```json')) {
-        aiOutput = aiOutput.replace(/```json/g, '').replace(/```/g, '').trim();
+      aiOutput = aiOutput.replace(/```json/g, '').replace(/```/g, '').trim();
     }
     const aiAnalysis = JSON.parse(aiOutput);
 
@@ -83,9 +83,9 @@ app.post('/api/analyze-threat', async (req, res) => {
     // --- STEP 2: AUTONOMOUS USDC PAYMENT (Circle SDK) ---
     if (aiAnalysis.is_botnet && aiAnalysis.confidence > 80) {
       console.log(`[AGENT] Threat verified. Initiating autonomous 0.10 USDC bounty payment to detection node...`);
-      
+
       const idempotencyKey = uuidv4();
-      
+
       const paymentResponse = await circle.createTransaction({
         walletId: THREAT_INTEL_AGENT_WALLET,
         tokenId: USDC_TOKEN_ID,
