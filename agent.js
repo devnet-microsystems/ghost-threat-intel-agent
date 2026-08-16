@@ -3,7 +3,7 @@ import { GoogleGenAI } from '@google/genai';
 import { initiateDeveloperControlledWalletsClient } from '@circle-fin/developer-controlled-wallets';
 import { v4 as uuidv4 } from 'uuid';
 import dotenv from 'dotenv';
-import crypto from 'crypto';
+import { createHmac } from 'node:crypto';
 
 dotenv.config();
 
@@ -20,7 +20,7 @@ app.use('/api/analyze-threat', (req, res, next) => {
   }
 
   const payload = JSON.stringify(req.body);
-  const expectedSignature = crypto.createHmac('sha256', secret).update(payload).digest('hex');
+  const expectedSignature = createHmac('sha256', secret).update(payload).digest('hex');
 
   if (signature !== expectedSignature) {
     return res.status(401).json({ error: "Unauthorized. Invalid signature." });
