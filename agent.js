@@ -43,7 +43,7 @@ const THREAT_INTEL_AGENT_WALLET = process.env.AGENT_WALLET_ID;
 const BOUNTY_RECEIVER_WALLET = process.env.BOUNTY_WALLET_ID; 
 
 // Token ID for USDC on Arb Sepolia (Circle Testnet)
-const USDC_TOKEN_ID = "615b1e62-c1f9-5fc3-81a1-f7ee8eaab4e0"; 
+const USDC_TOKEN_ID = "4b8daacc-5f47-5909-a3ba-30d171ebad98"; 
 
 app.post('/api/analyze-threat', async (req, res) => {
   const { ip_address, headers, failed_attempts } = req.body;
