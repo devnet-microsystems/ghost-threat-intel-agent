@@ -17,7 +17,7 @@ This proves true agentic economic activity: The AI holds its own wallet, makes a
 ## Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/DevMicrosystems/ghost-threat-intel-agent.git
+   git clone https://github.com/DevMicrosystemsLTD/ghost-threat-intel-agent.git
    cd ghost-threat-intel-agent
    ```
 2. Install dependencies:
@@ -47,6 +47,6 @@ Send a POST request to `/api/analyze-threat` with the following JSON payload:
 ```
 
 ## Proof of Execution
-- **Agent Wallet Address:** `0x166f7f48331e30fabe1649ee8edb68f2afcdf2f1`
+- **Agent Wallet Address:** `[INSERT_YOUR_AGENT_WALLET_ADDRESS_HERE]`
 - **Block Explorer URL:** `[INSERT_YOUR_TRANSACTION_URL_HERE]`
 - **Demo Video:** `[INSERT_YOUTUBE_OR_LOOM_LINK_HERE]`

@@ -29,7 +29,7 @@ app.use('/api/analyze-threat', (req, res, next) => {
   next();
 });
 
-// 1. Initialize Gemini 3.5 Flash
+// 1. Initialize Gemini 3.7 Flash
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 // 2. Initialize Circle SDK (Testnet)
@@ -55,8 +55,8 @@ app.post('/api/analyze-threat', async (req, res) => {
   console.log(`[AGENT] Received threat analysis request for IP: ${ip_address}`);
 
   try {
-    // --- STEP 1: AI THREAT ANALYSIS (Gemini 3.5 Flash) ---
-    console.log(`[AGENT] Consulting Gemini 3.5 Flash for threat intelligence...`);
+    // --- STEP 1: AI THREAT ANALYSIS (Gemini 3.7 Flash) ---
+    console.log(`[AGENT] Consulting Gemini 3.7 Flash for threat intelligence...`);
     
     const prompt = `You are a cybersecurity AI. Analyze this threat data from a WordPress WebAuthn plugin.
     IP: ${ip_address}
@@ -67,7 +67,7 @@ app.post('/api/analyze-threat', async (req, res) => {
     Reply strictly with a JSON object: {"is_botnet": true|false, "confidence": 0-100, "reason": "short explanation"}`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-3.5-flash",
+      model: "gemini-3.7-flash",
       contents: prompt,
     });
 
