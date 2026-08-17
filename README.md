@@ -65,4 +65,4 @@ axios.post('https://YOUR_CLOUD_RUN_URL/api/analyze-threat', payload, {
 - **Agent Wallet Address:** `0x414c34d815dcd1a87328c720fc19ecd81612feef` (Polygon Amoy Testnet)
 - **Bounty Receiver Wallet:** `0x69b4f89aa5769bab67236d4a4410addcef8dd9ce`
 - **Block Explorer URL:** `https://amoy.polygonscan.com/tx/0xf612acf9201f5c2e7ffc14f739ddbcd21f87cd76b7b058284cd3997f2b91d0ae`
-- **Demo Video:** `https://youtu.be/vOTt2emA-gg`
+- **Demo Video:** `https://youtu.be/luA8ECSN410`
