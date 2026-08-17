@@ -14,7 +14,7 @@ This proves true agentic economic activity: The AI holds its own wallet, makes a
 - A Google Gemini API Key
 - A Circle Web3 Services Account (Testnet)
 
-## Setup
+## Setup 
 1. Clone the repository:
    ```bash
    git clone https://github.com/devnet-microsystems/ghost-threat-intel-agent.git
