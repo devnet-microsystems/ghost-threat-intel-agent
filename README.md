@@ -17,7 +17,7 @@ This proves true agentic economic activity: The AI holds its own wallet, makes a
 ## Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/DevMicrosystemsLTD/ghost-threat-intel-agent.git
+   git clone https://github.com/devnet-microsystems/ghost-threat-intel-agent.git
    cd ghost-threat-intel-agent
    ```
 2. Install dependencies:
@@ -34,20 +34,35 @@ This proves true agentic economic activity: The AI holds its own wallet, makes a
    ```
 
 ## API Endpoint
-Send a POST request to `/api/analyze-threat` with the following JSON payload:
-```json
-{
-  "ip_address": "192.168.1.100",
-  "failed_attempts": 5,
-  "headers": {
-    "User-Agent": "python-requests/2.25.1",
-    "Accept": "*/*"
+This endpoint is protected by HMAC-SHA256 authentication. You must sign the JSON payload using your `AGENT_SECRET` and include it in the `x-signature` header.
+
+### Example Request (Node.js)
+```javascript
+const crypto = require('crypto');
+const axios = require('axios');
+
+const secret = 'YOUR_AGENT_SECRET';
+const payload = JSON.stringify({
+  ip_address: "198.51.100.22",
+  failed_attempts: 15000,
+  headers: {
+    "user-agent": "Mozilla/5.0 ...",
+    "x-attack-vector": "Distributed WebAuthn Sybil Attack"
   }
-}
+});
+
+const signature = crypto.createHmac('sha256', payload).update(secret).digest('hex');
+
+axios.post('https://YOUR_CLOUD_RUN_URL/api/analyze-threat', payload, {
+  headers: {
+    'Content-Type': 'application/json',
+    'x-signature': signature
+  }
+}).then(res => console.log(res.data));
 ```
 
 ## Proof of Execution
-- **Agent Wallet Address:** `0x166f7f48331e30fabe1649ee8edb68f2afcdf2f1` (Arbitrum Sepolia Testnet)
-- **Bounty Receiver Wallet:** `0x2b5c290e8c6f06ef5cbc53358637b6123f1f8421`
-- **Block Explorer URL:** `[INSERT_YOUR_TRANSACTION_URL_HERE]`
-- **Demo Video:** `[INSERT_YOUTUBE_OR_LOOM_LINK_HERE]`
+- **Agent Wallet Address:** `0x414c34d815dcd1a87328c720fc19ecd81612feef` (Polygon Amoy Testnet)
+- **Bounty Receiver Wallet:** `0x69b4f89aa5769bab67236d4a4410addcef8dd9ce`
+- **Block Explorer URL:** `https://amoy.polygonscan.com/tx/0xf612acf9201f5c2e7ffc14f739ddbcd21f87cd76b7b058284cd3997f2b91d0ae`
+- **Demo Video:** `https://youtu.be/vOTt2emA-gg`
